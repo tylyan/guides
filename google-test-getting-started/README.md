@@ -1,5 +1,5 @@
 # Newbies guide to setting up Google Test
-This guide is written primarily for developers that want to set up the Google Test framework in order to start writing and running C/C++ projects in the CLI. However, these steps may be relevant for other development environments as well. The focus in this guide is how to get Google Test up and running and not writing tests themselves - there are plenty of other guides for that. This guide also assumes you have some knowledge in C and Makefiles.
+This guide is written primarily for developers that want to set up the Google Test framework in order to start writing and running C/C++ projects in the CLI. However, these steps may be relevant for other development environments as well. The focus for this guide to get Google Test up and running and not writing the tests themselves - there are plenty of other guides for that. This guide also assumes you have some knowledge in C and Makefiles.
 
 ### Example
 The example I will be using in this guide will be a function that will add 1 to an integer if it is 0 or positive (`x >= 0`), or subtract 1 if it is negative (`x < 0`). Sample code can be found in the directory `myfunction`.
