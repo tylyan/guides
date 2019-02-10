@@ -82,7 +82,7 @@ Now, we need to configure our Makefile, then build and run our tests.
     * In this case, `myfunction_unittest` will be created.
 8. Run `./myfunction_unittest` to see the results of the unit tests!
 
-##### Example make rules for myfunction:
+##### Make rules for myfunction:
 ```
 myfunction.o : $(USER_DIR)/myfunction.c $(USER_DIR)/myfunction.h $(GTEST_HEADERS)
     $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/myfunction.c
@@ -95,7 +95,7 @@ myfunction_unittest : myfunction.o myfunction_unittest.o gtest_main.a
     $(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 ```
 
-##### Sample output from `myfunction_unittest`
+##### Output from `myfunction_unittest`
 ```
 [==========] Running 2 tests from 1 test case.
 [----------] Global test environment set-up.
@@ -112,13 +112,4 @@ myfunction_unittest : myfunction.o myfunction_unittest.o gtest_main.a
 ```
 
 ## Conclusion
-Hopefully, this guide has helped you hit the ground running with Google Test and you can start developing C/C++ using Test Driven Development. Again, this is not meant to be an advanced guide - there are plenty of documentation out there on how to _use_ Google Tests, but few on actually setting it up for the first time.
-
-This is what the example directory looks like in the end (minus binary files):
-```
-myfunction/
-├── Makefile
-├── myfunction.c
-├── myfunction_unittest.cc
-└── myfunction.h
-```
+Hopefully, this guide has helped you hit the ground running with Google Test and you can start developing C/C++ using Test Driven Development. Again, this is not meant to be an advanced guide - there are plenty of documentation out there on how to _use_ Google Test, but few on actually setting it up for the first time. The final directory structure can be found in `myfunction`. Happy testing!
