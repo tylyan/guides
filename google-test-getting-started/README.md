@@ -4,6 +4,8 @@ This guide is written primarily for developers that want to set up the Google Te
 ### Example
 The example I will be using in this guide will be a function that will add 1 to an integer if it is 0 or positive (`x >= 0`), or subtract 1 if it is negative (`x < 0`). Sample code can be found in the directory `myfunction`.
 
+**Note**: The function that we will be testing needs to be in its own source file that **does not** have a `main()` function, otherwise you will run into compilation errors.
+
 Here is the starting directory structure for the example:
 ```
 myfunction/
@@ -38,7 +40,7 @@ First, we need to get the source code for Google Test.
     * Remember to replace this path in future steps with your own directory if you choose a different one.
     * The contents of the zip file include source code for both googlemock and googletest, we are only focusing on googletest.
 
-### Writing the tests
+## Writing the tests
 Next, let's write our unit tests.
 1. Create a source file to write your tests, in this example, it will be `myfunction_unittest.cc`.
 2. In this file, you must include your header file and the `gtest/gtest.h` header.
@@ -63,7 +65,7 @@ TEST(MyFunction, NegativeNum) {
 }
 ```
 
-### Build and run tests
+## Build and run tests
 Now, we need to configure our Makefile, then build and run our tests.
 1. Copy the Makefile from `/usr/src/googletest/googletest/make/Makefile` to the root of C project you wish to write unit tests for. For this example, this would be the `myfunction` directory. **The following steps will be made to the newly copied Makefile.**
 2. Change the `GTEST_DIR = ..` to point to your google test directory (line 17).
@@ -75,7 +77,7 @@ Now, we need to configure our Makefile, then build and run our tests.
     * **Note:** You can add more than one unit test binary, just add them separated by a space and make sure you have the proper make rules to make them (covered below).
 5. Copy the make rules for the `sample1` source code (line 74 - 82).
 6. Change the newly copied make rules to point to your source files. I simply looked for all instances of `sample1` and replaced it with `myfunction` and ensured the file extensions matched (which is important if you are using `.cpp` or something else).
-    * **Note:** If you choose to write your own `main()` function in the unit test file, then you will also need to change the link from `gtest_main.a` to `gtest.a` or you will get a compilation error due to multiple definitions of `main()`.
+    * **Note:** If you choose to write your own `main()` function in the unit test file, you will also need to change the link from `gtest_main.a` to `gtest.a` or you will get a compilation error due to multiple definitions of `main()`.
 7. Run `make` on the command line to generate the unit test binary.
     * In this case, `myfunction_unittest` will be created.
 8. Run `./myfunction_unittest` to see the results of the unit tests!
@@ -109,7 +111,7 @@ myfunction_unittest : myfunction.o myfunction_unittest.o gtest_main.a
 [  PASSED  ] 2 tests.
 ```
 
-### Conclusion
+## Conclusion
 Hopefully, this guide has helped you hit the ground running with Google Test and you can start developing C/C++ using Test Driven Development. Again, this is not meant to be an advanced guide - there are plenty of documentation out there on how to _use_ Google Tests, but few on actually setting it up for the first time.
 
 This is what the example directory looks like in the end (minus binary files):
