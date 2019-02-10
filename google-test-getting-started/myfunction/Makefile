@@ -14,10 +14,10 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /usr/src/googletest # change me
+GTEST_DIR = /usr/src/googletest/googletest # change me
 
 # Where to find user code.
-USER_DIR = ~/myfunction # change me
+USER_DIR = ./ # change me
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
